@@ -1,15 +1,12 @@
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import Title from '@/components/Title'
-import NotificationBadge from '@/components/NotificationBadge'
-import Button from '@/components/Button'
+import styles from '@/styles/Home.module.css';
+import Title from '@/components/Title';
+import NotificationBadge from '@/components/NotificationBadge';
+import Button from '@/components/Button';
 import { loadNotifications } from '@/lib/load-notifications';
 import { INotification } from '@/interfaces/INotification';
-import Notification from '@/components/Notification'
-import { useState } from 'react'
-
-const inter = Inter({ subsets: ['latin'] })
+import Notification from '@/components/Notification';
+import { useState } from 'react';
 
 export default function Home({ notifications }: { notifications: INotification[]}) {
   const [numberOfNotifications, setNumberOfNotifications] = useState(7);
@@ -50,7 +47,7 @@ export default function Home({ notifications }: { notifications: INotification[]
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const notifications = await loadNotifications();
   return {
     props: {

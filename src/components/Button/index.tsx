@@ -10,4 +10,9 @@ const StyledButton = styled.button`
   background: transparent;
   color: var(--color-neutral-dark-grayish-blue);
   font-size: 0.9em;
+
+  &:hover, :focus {
+    color: var(--color-primary-blue);
+    cursor: pointer;
+  }
 `

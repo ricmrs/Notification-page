@@ -1,13 +1,19 @@
 import { INotification } from "@/interfaces/INotification";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styled from "styled-components";
+
+interface INotificationProps extends INotification {
+  unreadAll?: boolean
+  numberOfNotifications: number
+  setNumberOfNotifications: Dispatch<SetStateAction<number>>
+}
 
 export default function Notification({
   avatar, user, action, time, link, message, picture,
-  unreadAll,
-  numberOfNotifications, setNumberOfNotifications }: INotification) {
+  unreadAll = true,
+  numberOfNotifications, setNumberOfNotifications }: INotificationProps) {
 
   const [unread, setUnread] = useState(true);
 
@@ -25,7 +31,7 @@ export default function Notification({
   return (
     <StyledNotification unread={unread} onClick={readNotification}>
       <Image src={avatar.src} alt={avatar.description} width={40} height={40} />
-      <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+      <StyledWrapper>
         <div>
           <p>
             <StyledUser href={'#'}>{user}</StyledUser>
@@ -38,14 +44,14 @@ export default function Notification({
           {message && <StyledMessage href={'#'}>{message}</StyledMessage>}
         </div>
         {picture && <Link href={'#'}><Image src={picture!.src} alt={picture!.description} width={40} height={40} /></Link>}
-      </div>
+      </StyledWrapper>
     </StyledNotification>
   )
 }
 
 const StyledNotification = styled.section<{ unread: Boolean }>`
   background: ${props => props.unread
-    ? 'var(--color-neutral-light-grayish-blue-1)'
+    ? 'var(--color-neutral-very-light-grayish-blue)'
     : 'transparent'};
   width: 100%;
   padding: 15px 10px;
@@ -53,13 +59,18 @@ const StyledNotification = styled.section<{ unread: Boolean }>`
   display: flex;
   gap: 10px;
 `
+const StyledWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+`
 
 const StyledUser = styled(Link)`
   color: var(--color-neutral-very-dark-blue);
   font-weight: bold;
   margin-right: 4px;
 
-  &:hover {
+  &:hover, :focus {
     color: var(--color-primary-blue);
   }
 `
@@ -82,24 +93,25 @@ const StyledLink = styled(Link)`
   display: inline;
   margin-left: 4px;
 
-  &:hover {
+  &:hover, :focus {
     color: var(--color-primary-blue);
   }
 `
 
 const StyledTime = styled.p`
   color: var(--color-neutral-grayish-blue);
+  margin-top: 2px;
 `
 
 const StyledMessage = styled(Link)`
   border: 1px solid var(--color-neutral-dark-grayish-blue);
   border-radius: 3px;
-  padding: 10px;
+  padding: 12px;
   margin-top: 5px;
   color: var(--color-neutral-dark-grayish-blue);
   display: inline-block;
 
-  &:hover {
+  &:hover, :focus {
     background: var(--color-neutral-light-grayish-blue-1);
   }
 `
