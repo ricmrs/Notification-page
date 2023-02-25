@@ -20,6 +20,11 @@
   gap: 5px;
 }
 
+.footer {
+  text-align: center;
+  background: var(--background);
+}
+
 @media screen and (min-width: 900px) {
   .main {
     border-radius: 10px;

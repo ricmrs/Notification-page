@@ -43,7 +43,7 @@ export default function Home({ notifications }: { notifications: INotification[]
           />
         ))}
       </main>
-      <footer style={{textAlign: 'center'}}>
+      <footer className={styles.footer}>
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
         Coded by <a href="https://www.github.com/ricmrs">ricmrs</a>.
       </footer>
