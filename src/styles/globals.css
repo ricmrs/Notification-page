@@ -1,0 +1,25 @@
+:root {
+  --border-radius: 12px;
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+
+  --background: #fff;
+
+  --color-primary-red: hsl(1, 90%, 64%);
+  --color-primary-blue: hsl(219, 85%, 26%);
+
+  --color-neutral-white: hsl(0, 0%, 100%);
+  --color-neutral-very-light-grayish-blue: hsl(210, 60%, 98%);
+  --color-neutral-light-grayish-blue-1: hsl(211, 68%, 94%);
+  --color-neutral-light-grayish-blue-2: hsl(205, 33%, 90%);
+  --color-neutral-grayish-blue: hsl(219, 14%, 63%);
+  --color-neutral-dark-grayish-blue: hsl(219, 12%, 42%);
+  --color-neutral-very-dark-blue: hsl(224, 21%, 14%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
