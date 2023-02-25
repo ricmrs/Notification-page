@@ -11,10 +11,10 @@ export default function Notification({ avatar, user, action, time }: INotificati
   }
 
   return (
-    <StyledNotification unread={unread!} onClick={readNotification}>
+    <StyledNotification unread={unread} onClick={readNotification}>
       <Image src={avatar.src} alt={avatar.description} width={40} height={40} />
       <div>
-        <p><StyledUser>{user}</StyledUser> <StyledAction>{action}</StyledAction></p>
+        <p><StyledUser>{user}</StyledUser> <StyledAction unread={unread}>{action}</StyledAction></p>
         <StyledTime>{time}</StyledTime>
       </div>
     </StyledNotification>
@@ -36,8 +36,17 @@ const StyledUser = styled.span`
   font-weight: bold;
 `
 
-const StyledAction = styled.span`
+const StyledAction = styled.span<{unread: Boolean}>`
   color: var(--color-neutral-dark-grayish-blue);
+  ${props => props.unread ? `&::after {
+    content: '';
+    display: inline-block;
+    margin-left: 5px;
+    height: 8px;
+    width: 8px;
+    border-radius: 100%;
+    background: var(--color-primary-red);
+  }`: ''}
 `
 const StyledTime = styled.p`
   color: var(--color-neutral-grayish-blue);
