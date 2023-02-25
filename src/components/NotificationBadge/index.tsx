@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export default function NotificationBadge(){
+export default function NotificationBadge({numberOfNotifications}: {numberOfNotifications: number}){
   return (
     <StyledBadge>
-      3
+      {numberOfNotifications}
     </StyledBadge>
   )
 }

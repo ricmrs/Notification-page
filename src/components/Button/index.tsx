@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export default function Button({ children }: { children: String } ){
+export default function Button({ children, onClick }: { children: String, onClick: () => void } ){
   return (
-    <StyledButton>{children}</StyledButton>
+    <StyledButton onClick={onClick}>{children}</StyledButton>
   )
 }
 

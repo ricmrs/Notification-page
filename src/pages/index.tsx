@@ -7,10 +7,19 @@ import Button from '@/components/Button'
 import { loadNotifications } from '@/lib/load-notifications';
 import { INotification } from '@/interfaces/INotification';
 import Notification from '@/components/Notification'
+import { useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({ notifications }: { notifications: INotification[]}) {
+  const [numberOfNotifications, setNumberOfNotifications] = useState(7);
+  const [unreadAll, setUnreadAll] = useState(true);
+
+  function markAllAsRead(){
+    setNumberOfNotifications(0);
+    setUnreadAll(false);
+  }
+
   return (
     <>
       <Head>
@@ -23,12 +32,18 @@ export default function Home({ notifications }: { notifications: INotification[]
         <header className={styles.header}>
           <div className={styles.wrapper}>
             <Title>Notifications</Title>
-            <NotificationBadge />
+            <NotificationBadge numberOfNotifications={numberOfNotifications}/>
           </div>
-          <Button>Mark all as read</Button>
+          <Button onClick={markAllAsRead}>Mark all as read</Button>
         </header>
         {notifications.map(notification => (
-          <Notification key={notification.id} {...notification}/>
+          <Notification 
+            key={notification.id}
+            {...notification}
+            unreadAll={unreadAll}
+            numberOfNotifications={numberOfNotifications}
+            setNumberOfNotifications={setNumberOfNotifications}
+          />
         ))}
       </main>
     </>

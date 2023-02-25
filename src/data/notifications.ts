@@ -6,7 +6,8 @@ export const notifications = [
       description: 'Mark Webber avatar'
     },
     user: 'Mark Webber',
-    action: 'reacted to your recent post My first tournament today!',
+    action: 'reacted to your recent post',
+    link: 'My first tournament today!',
     time: '1m ago'
   },
   {
@@ -26,7 +27,8 @@ export const notifications = [
       description: 'Jacob Thompson avatar'
     },
     user: 'Jacob Thompson',
-    action: 'has joined your group Chess Club',
+    action: 'has joined your group',
+    link: 'Chess Club',
     time: '1 day ago'
   },
   {
@@ -37,6 +39,7 @@ export const notifications = [
     },
     user: 'Rizky Hasanuddin',
     action: 'sent you a private message',
+    message: "Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game.",
     time: '5 days ago'
   },
   {
@@ -47,6 +50,10 @@ export const notifications = [
     },
     user: 'Kimberly Smith',
     action: 'commented on your picture',
+    picture: {
+      src: '/images/image-chess.webp',
+      description: 'Chess picture'
+    },
     time: '1 week ago',
   },
   {
@@ -56,7 +63,8 @@ export const notifications = [
       description: 'Nathan Peterson avatar'
     },
     user: 'Nathan Peterson',
-    action: 'reacted to your recent post 5 end-game strategies to increase your win rate',
+    action: 'reacted to your recent post',
+    link: '5 end-game strategies to increase your win rate',
     time: '2 week ago'
   },
   {
@@ -66,7 +74,8 @@ export const notifications = [
       description: 'Anna Kim avatar'
     },
     user: 'Anna Kim',
-    action: 'left the group Chess Club',
+    action: 'left the group',
+    link: 'Chess Club',
     time: '2 week ago'
   },
 ]
